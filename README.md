@@ -1,8 +1,3 @@
-# React + Vite
+# REACT 과제 - 쇼핑몰 구현하기
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+제로베이스에서 진행한 REACT 과제, 쇼핑몰 구현하기 코드를 올리는 공간입니다.
