@@ -1,8 +1,16 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Error() {
+const Error = (): JSX.Element => {
   return (
-    <div>Error</div>
+    <>
+      <h1 className='mt-20 sm:mb-10 text--cetner sm:text-4xl sm:text-4x1 font-bold'>404</h1>
+      <p className='mt-4 mb-5 sm:mb-10 text-center text-lg sm:text-3x1'>페이지를 찾을 수 없습니다.</p>
+      <div className='text-center'>
+        <Link to='/' className='btn btn-md sm:btn-lg btn-primary sm:w-40'>
+          메인으로
+        </Link>
+      </div>
+    </>
   )
 }
 
