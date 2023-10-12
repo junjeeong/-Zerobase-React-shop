@@ -1,8 +1,10 @@
-import React from 'react'
+import CartView from '../components/CartView'
 
-function Cart() {
+const Cart = (): JSX.Element => {
   return (
-    <div>Cart</div>
+    <section className='px-4 lg:pt-5 pb-4 lg:pb-8 px-4 xl:px-2 xl:container mx-auto'>
+      <CartView/>
+    </section>
   )
 }
 

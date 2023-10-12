@@ -1,7 +1,6 @@
 import { atom, selector } from "recoil";
 import { CART_ITEM } from "../composables/useCartLoad";
 import { productsList } from "./products";
-import Products from '../views/Products';
 
 export interface CartInfo {
     id: number
@@ -9,7 +8,7 @@ export interface CartInfo {
 }
 
 export interface CartItems {
-    id: number
+    id: string
     title: string
     price: number
     count: number
@@ -47,7 +46,25 @@ export const cartTotal = selector<number>({
     }
 })
 
-export const addToCart = { cart: CartState, id: number } => {
+export const cartList = selector<CartItems[]>({
+    key: 'cartList',
+    get: ({ get }) => {
+        const products = get(productsList)
+        const cartItems = get(cartState)
+        return Object.keys(cartItems).map((id) => {
+            const items = cartItems[id]
+            return {
+                id: items.id,
+                image: products[items.id - 1].image,
+                title: products[items.id - 1].title,
+                count: items.count,
+                price: items.count * products[items.id - 1].price
+            }
+        })
+    }
+})
+
+export const addToCart = (cart: CartState, id: number) => {
     if (!cartState[id]) {
         cartState[id] = {
             id,

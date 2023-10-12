@@ -1,6 +1,18 @@
+import { toCurrencyFormat } from "../helpers/helpers";
+import { addToCart } from "../store/cart";
+import Products from "../views/Products";
 import BreadCrumb from "./BreadCrumb";
+import ProductsList from "./ProductList";
+import ProductsLoad from "./ProductsLoad";
+import ProductViewLoad from "./ProductViewLoad";
+import Rating from "./Rating";
 
-const BreadCrumb = (): JSX.Element => {
+
+const ProductView = (): JSX.Element => {
+    if ('loading' === ProductsLoadable.state) {
+        return <ProductsViewLoad />
+    }
+
     return (
         <div>
             <BreadCrumb category={product.category} crumb={product.title} />
@@ -13,8 +25,20 @@ const BreadCrumb = (): JSX.Element => {
                         {product.title}
                         <span className="badge badge-accent ml-2">NEW</span>
                     </h2>
+                    <p>{product.description}</p>
+                    <Rating rate={product?.rating?.rate} count={product?.rating?.count} />
+                    <p className="mt-2 mb-4 text-3x1">{toCurrencyFormat(poduct.price)</p>
+                    <div className="card-action">
+                        <button className="btn btn-primary" onClick={() => addToCartHandler(product.id)}>
+                            장바구니에 담기
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
     )
 }
+
+
+export default ProductView

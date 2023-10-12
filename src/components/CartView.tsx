@@ -49,3 +49,5 @@ const CartView = (): JSX.Element => {
     </>
   )
 }
+
+export default CartView
